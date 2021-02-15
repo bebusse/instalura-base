@@ -1,11 +1,9 @@
-import styled from 'styled-components'
-
-function Title(props)
-{
-  return <h1>{props.children}</h1>;
-}
+import React from 'react';
+import Menu from '../src/components/commons/Menu';
 
 export default function Home()
 {
-  return <Title>Instalura Base - Modulo 1</Title>
+  return (
+    <Menu></Menu>
+  );
 }
