@@ -1,5 +1,6 @@
 import {MenuWrapper} from '../Menu/styles/MenuWrapper.js';
 import Logo from '../../../theme/Logo';
+import { Button } from '../Button/index.js';
 
 export default function Menu()
 {
@@ -24,12 +25,16 @@ export default function Menu()
       </MenuWrapper.LeftSide>
       <MenuWrapper.CentralSide>
           {links.map((link) => {
-            return <li><a href={link.url}>{link.texto}</a></li>
+            return <li key={link.url}><a href={link.url}>{link.texto}</a></li>
           })}
       </MenuWrapper.CentralSide>
       <MenuWrapper.RightSide>
-          <button>Entrar</button>
-          <button>Cadastrar</button>
+          <Button ghost variant="secondary.main">
+            Entrar
+          </Button>
+          <Button variant="primary.main">
+            Cadastrar
+          </Button>
       </MenuWrapper.RightSide>
     </MenuWrapper>
   );
