@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
+import { propToStyle } from '../../../theme/utils/propToStyle';
 
 function TextCss(theme,variant)
 {
@@ -23,15 +24,16 @@ export const TextStyleVariantsMap = {
 
 const TextBase = styled.span`
     ${({variant}) => TextStyleVariantsMap[variant]};
+    ${propToStyle('textAlign')}
 `;
 
-export default function Text({tag, variant, href, children}) {
+export default function Text({tag, variant, children, ...props}) {
     // href = href != null ? href={}:'';
     return (
         <TextBase
             as={tag}
             variant={variant}
-            href={href}
+            {...props}
         >
             {children}
         </TextBase>
