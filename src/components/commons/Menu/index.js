@@ -11,7 +11,7 @@ export default function Menu()
             url: '/'
         },
         {
-            texto: 'Perguntas Frequents',
+            texto: 'Perguntas Frequentes',
             url: '/faq'
         },
         {

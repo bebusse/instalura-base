@@ -25,11 +25,13 @@ const TextBase = styled.span`
     ${({variant}) => TextStyleVariantsMap[variant]};
 `;
 
-export default function Text({tag, variant, children}) {
+export default function Text({tag, variant, href, children}) {
+    // href = href != null ? href={}:'';
     return (
         <TextBase
             as={tag}
             variant={variant}
+            href={href}
         >
             {children}
         </TextBase>
