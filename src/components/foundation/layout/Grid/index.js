@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
-import { breakpoints } from '../../../../theme/index'
+import { breakpoints } from '../../../../theme/index';
+import { propToStyle } from '../../../../theme/utils/propToStyle';
 
 const Container = styled.div`
 
@@ -27,7 +28,8 @@ const Container = styled.div`
     xl: css`
         max-width: 1222px;
     `,
-    })}
+  })}
+    ${propToStyle('marginTop')}
 `;
 
 const Row = styled.div`
@@ -38,56 +40,62 @@ margin-left: -16px;
 `;
 
 function colValuesCss(value) {
-    return css`
+  return css`
         flex: 0 0 ${(100 * value) / 12}%;
         max-width: ${(100 * value) / 12}%;
     `;
 }
 
 function colOffsetCss(value) {
-    return css`
+  return css`
         margin-left: ${(100 * value) / 12}%;
     `;
 }
 
-function colBreakpoints(value,cssFunction) {
-    const breakpointsNames = Object.keys(breakpoints);
-    let colValuesBreakpointsObj = {};
-    breakpointsNames.map((breakpointName) => {
-        if (value[breakpointName] != null) {
-            colValuesBreakpointsObj[breakpointName] = cssFunction(value[breakpointName]);
-        }
-    });
-    return colValuesBreakpointsObj;
+function colBreakpoints(value, cssFunction) {
+  const breakpointsNames = Object.keys(breakpoints);
+  const colValuesBreakpointsObj = {};
+  breakpointsNames.map((breakpointName) => {
+    if (value[breakpointName] != null) {
+      colValuesBreakpointsObj[breakpointName] = cssFunction(value[breakpointName]);
+    }
+  });
+  return colValuesBreakpointsObj;
 }
 
 const Col = styled.div`
-  padding-right: 16px;
-  padding-left: 16px;
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
-  ${({ value }) => {
+    padding-right: 16px;
+    padding-left: 16px;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    ${({ value }) => {
     if (typeof value === 'number') {
       return colValuesCss(value);
     }
-    return breakpointsMedia(colBreakpoints(value,colValuesCss));
+    return breakpointsMedia(colBreakpoints(value, colValuesCss));
   }}
-  ${({ offset }) => {
+    ${({ offset }) => {
     if (typeof offset === 'number') {
       return colOffsetCss(offset);
     }
-    return breakpointsMedia(colBreakpoints(offset,colOffsetCss));
+    return breakpointsMedia(colBreakpoints(offset, colOffsetCss));
   }}
+    ${propToStyle('display')}
+    ${propToStyle('alignItems')}
+    ${propToStyle('justifyContent')}
+    ${propToStyle('flexDirection')}
+    ${propToStyle('marginTop')}
+    ${propToStyle('marginBottom')}
 `;
 
 Col.defaultProps = {
-    value: {},
-    offset: {},
-  };
+  value: 12,
+  offset: 0,
+};
 
 export const Grid = {
-    Container,
-    Row,
-    Col
-}
+  Container,
+  Row,
+  Col,
+};

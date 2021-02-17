@@ -1,28 +1,46 @@
+import Image from 'next/image';
+import React from 'react';
 import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
 import Text from '../src/components/foundation/Text';
 import { Button } from '../src/components/commons/Button';
 import { Grid } from '../src/components/foundation/layout/Grid';
+import { Box } from '../src/components/foundation/layout/Box/index';
 
-export default function Home()
-{
+export default function Home() {
   return (
-    <div style={{
-      flex: '1',
-      display: 'flex',
-      flexWrap: 'wrap',
-      flexDirection: 'column',
-      justifyContent: 'space-between'
-    }}>
+    <Box
+      flex="1"
+      display="flex"
+      flexWrap="wrap"
+      flexDirection="column"
+      justifyContent="space-between"
+      backgroundImage="url(/img/bubbles.svg)"
+      backgroundRepeat="no-repeat"
+      backgroundPosition="bottom right"
+    >
       <Menu />
 
-      <Grid.Container>
+      <Grid.Container
+        marginTop={{
+          xs: '32px',
+          md: '76px',
+        }}
+      >
         <Grid.Row>
           <Grid.Col
-            offset={{xs: 0, md:1}}
-            value={{xs: 12, md:5}}
+            offset={{ xs: 0, md: 1 }}
+            value={{ xs: 12, md: 5 }}
+            display="flex"
+            alignItems="flex-start"
+            justifyContent="center"
+            flexDirection="column"
+            marginBottom={{
+              xs: '40px',
+              md: '0px',
+            }}
           >
-              <Text
+            <Text
               variant="title"
               tag="h1"
               color="tertiary.main"
@@ -57,17 +75,17 @@ export default function Home()
               Cadastrar
             </Button>
           </Grid.Col>
-          
+
           <Grid.Col
-            offset={{xs: 0, md:0}}
-            value={{xs: 0, md:6}}
+            offset={{ xs: 0, md: 0 }}
+            value={{ xs: 12, md: 6 }}
           >
-            <img src="https://placehold.it/400x400" alt=""/>
+            <Image src="/img/phones.png" alt="" width="386" height="575" />
           </Grid.Col>
         </Grid.Row>
       </Grid.Container>
 
       <Footer />
-    </div>
+    </Box>
   );
 }
