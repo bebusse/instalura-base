@@ -33,10 +33,14 @@ const Container = styled.div`
 `;
 
 const Row = styled.div`
-display: flex;
-flex-wrap: wrap;
-margin-right: -16px;
-margin-left: -16px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -16px;
+  margin-left: -16px;
+  ${propToStyle('flex')}
+  ${propToStyle('marginLeft')}
+  ${propToStyle('marginRight')}
+  ${propToStyle('justifyContent')}
 `;
 
 function colValuesCss(value) {
@@ -87,6 +91,10 @@ const Col = styled.div`
     ${propToStyle('flexDirection')}
     ${propToStyle('marginTop')}
     ${propToStyle('marginBottom')}
+    ${propToStyle('marginLeft')}
+    ${propToStyle('marginRight')}
+    ${propToStyle('flex')}
+    ${propToStyle('paddingRight')}
 `;
 
 Col.defaultProps = {
