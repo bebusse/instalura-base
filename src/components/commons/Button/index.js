@@ -24,15 +24,25 @@ export const Button = styled.button`
     transition: ${({ theme }) => theme.transition};
     border-radius: ${({ theme }) => theme.borderRadius};
     ${(props) => {
-    if (props.ghost) {
-      return ButtonGhost;
-    }
-    return ButtonDefault;
-  }}
+        if (props.ghost) {
+        return ButtonGhost;
+        }
+        return ButtonDefault;
+    }}
     &:hover,
     &:focus {
         opacity: .5;
     }
+
+    &:disabled,
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: .2;
+    }
+
+    ${({ fullWidth }) => fullWidth && css`
+        width:100%;
+    `}
 
     ${propToStyle('display')}
     ${propToStyle('margin')}
@@ -46,3 +56,5 @@ export const Button = styled.button`
         `,
   })}
 `;
+
+export { Button as default };
