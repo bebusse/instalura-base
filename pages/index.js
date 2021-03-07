@@ -21,25 +21,22 @@ export default function Home() {
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
-      {isModalOpen
-        && (
-        <Modal
-          isOpen={isModalOpen}
-          onClose={() => setModalState(false)}
-        >
-          {(propsModal) => (
-            <Box
-              backgroundColor="white"
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setModalState(false)}
+      >
+        {(propsModal) => (
+          <Box
+            backgroundColor="white"
               // eslint-disable-next-line react/jsx-props-no-spreading
-              {...propsModal}
-            >
-              <div>
-                Um belo modal
-              </div>
-            </Box>
-          )}
-        </Modal>
+            {...propsModal}
+          >
+            <div>
+              Um belo modal
+            </div>
+          </Box>
         )}
+      </Modal>
       <Menu />
 
       <Grid.Container
