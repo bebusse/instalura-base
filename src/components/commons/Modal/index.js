@@ -53,7 +53,8 @@ export default function Modal({ isOpen, onClose, children }) {
       isOpen={isOpen}
       onClick={(event) => {
         const isSafeArea = event.target.closest('[data-modal-safe-area="true"]');
-        if (!isSafeArea) {
+        const closeModalButton = event.target.closest('[data-modal-close-button]');
+        if (!isSafeArea || closeModalButton) {
           onClose();
         }
       }}
