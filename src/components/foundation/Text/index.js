@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
-import { propToStyle } from '../../../theme/utils/propToStyle';
+import propToStyle from '../../../theme/utils/propToStyle';
 
 function TextCss(theme,variant)
 {
