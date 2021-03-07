@@ -41,7 +41,7 @@ export const colors = {
       },
       light: {
         color: '#88989E',
-        contrastText: '#fff',
+        contrastText: '#000',
       },
     },
     modes: {
