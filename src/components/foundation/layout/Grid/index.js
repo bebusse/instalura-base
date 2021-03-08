@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
+import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 import { breakpoints } from '../../../../theme/index';
 import propToStyle from '../../../../theme/utils/propToStyle';
 
@@ -63,6 +63,7 @@ function colBreakpoints(value, cssFunction) {
     if (value[breakpointName] != null) {
       colValuesBreakpointsObj[breakpointName] = cssFunction(value[breakpointName]);
     }
+    return true;
   });
   return colValuesBreakpointsObj;
 }
@@ -102,8 +103,10 @@ Col.defaultProps = {
   offset: 0,
 };
 
-export const Grid = {
+const Grid = {
   Container,
   Row,
   Col,
 };
+
+export { Grid as default };

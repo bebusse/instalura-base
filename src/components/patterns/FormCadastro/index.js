@@ -4,9 +4,9 @@ import { Lottie } from '@crello/react-lottie';
 import successAnimation from './animations/success.json';
 import errorAnimation from './animations/error.json';
 import Box from '../../foundation/layout/Box';
-import { Grid } from '../../foundation/layout/Grid';
+import Grid from '../../foundation/layout/Grid';
 import Text from '../../foundation/Text';
-import { Button } from '../../commons/Button/index';
+import Button from '../../commons/Button/index';
 import TextField from '../../forms/TextField';
 
 const formStates = {
@@ -33,7 +33,6 @@ function FormContent() {
   //     fetch('https://instalura-api.vercel.app/api/users')
   //       .then((responseServer) => responseServer.json())
   //       .then((responseProcessed) => {
-  //         console.log('responseProcessed', responseProcessed);
   //       });
   //   }
 
@@ -51,13 +50,11 @@ function FormContent() {
         }
         throw new Error('Não foi possível cadastrar o usuário');
       })
-      .then((responseProcessed) => {
+      .then(() => {
         setSubmissionStatus(formStates.DONE);
-        console.log('responseProcessed', responseProcessed);
       })
-      .catch((error) => {
+      .catch(() => {
         setSubmissionStatus(formStates.ERROR);
-        console.error(error);
       });
   }
 
@@ -79,7 +76,6 @@ function FormContent() {
       onSubmit={(event) => {
         event.preventDefault();
         setIsFormSubmitted(true);
-        console.log('Lets submit this form, right?');
         submitData(userDTO);
       }}
     >

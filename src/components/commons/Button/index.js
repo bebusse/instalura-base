@@ -1,20 +1,20 @@
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { TextStyleVariantsMap } from '../../foundation/Text';
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import propToStyle from '../../../theme/utils/propToStyle';
 
-export const ButtonGhost = css`
+const ButtonGhost = css`
     background:transparent;
     color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
 `;
 
-export const ButtonDefault = css`
+const ButtonDefault = css`
     background-color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
     color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)};
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
     border: 0;
     cursor: pointer;
     padding: 12px 26px;
@@ -24,11 +24,11 @@ export const Button = styled.button`
     transition: ${({ theme }) => theme.transition};
     border-radius: ${({ theme }) => theme.borderRadius};
     ${(props) => {
-        if (props.ghost) {
-        return ButtonGhost;
-        }
-        return ButtonDefault;
-    }}
+    if (props.ghost) {
+      return ButtonGhost;
+    }
+    return ButtonDefault;
+  }}
     &:hover,
     &:focus {
         opacity: .5;
