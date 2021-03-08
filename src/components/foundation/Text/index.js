@@ -27,7 +27,6 @@ const TextBase = styled.span`
     ${propToStyle('textAlign')}
     ${propToStyle('marginBottom')}
     ${({ theme, as }) => {
-    console.log('as', as);
     if (as === 'a') {
       return css`    
                 text-align: center;
@@ -39,6 +38,7 @@ const TextBase = styled.span`
                 }
             `;
     }
+    return false;
   }};
 `;
 
