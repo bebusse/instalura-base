@@ -38,9 +38,13 @@ const Row = styled.div`
   margin-right: -16px;
   margin-left: -16px;
   ${propToStyle('flex')}
+  ${propToStyle('marginTop')}
   ${propToStyle('marginLeft')}
   ${propToStyle('marginRight')}
+  ${propToStyle('marginBottom')}
   ${propToStyle('justifyContent')}
+  ${propToStyle('flexDirection')}
+  ${propToStyle('order')}
 `;
 
 function colValuesCss(value) {

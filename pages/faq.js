@@ -1,88 +1,39 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import Menu from '../src/components/commons/Menu';
-import Footer from '../src/components/commons/Footer';
-import Text from '../src/components/foundation/Text';
-import Button from '../src/components/commons/Button';
-import Grid from '../src/components/foundation/layout/Grid';
-import Box from '../src/components/foundation/layout/Box/index';
-import Modal from '../src/components/commons/Modal';
-import FormCadastro from '../src/components/patterns/FormCadastro';
+import FAQScreen from '../src/components/screens/FAQScreen';
 
-export default function FAQScreen() {
-  const [isModalOpen, setModalState] = React.useState(false);
+export default function FAQPage(props) {
+  // const [faqCategories, setFaqCategories] = React.useState([]);
+
+  // React.useEffect(() => {
+  //   fetch('https://instalura-api.vercel.app/api/content/faq').then(async (res) => {
+  //     const response = await res.json();
+  //     return response.data;
+  //   })
+  //     .then((faqCategoriesFromServer) => {
+  //       setFaqCategories(faqCategoriesFromServer);
+  //     });
+  // }, []);
+
+  // return (
+  //   <FAQScreen faqCategories={faqCategories} />
+  // );
+
   return (
-    <Box
-      flex="1"
-      display="flex"
-      flexWrap="wrap"
-      flexDirection="column"
-      justifyContent="space-between"
-      backgroundImage="url(/img/bubbles.svg)"
-      backgroundRepeat="no-repeat"
-      backgroundPosition="bottom right"
-    >
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setModalState(false)}
-      >
-        {(propsModal) => (
-          <FormCadastro
-            onClickCloseCadastro={() => setModalState(false)}
-            propsModal={propsModal}
-          />
-        )}
-      </Modal>
-
-      <Menu
-        onClickCadastrar={() => setModalState(true)}
-      />
-
-      <Grid.Container
-        marginTop={{
-          xs: '32px',
-          md: '76px',
-        }}
-      >
-        <Grid.Row>
-          <Grid.Col
-            offset={{ xs: 0, md: 0 }}
-            value={{ xs: 12, md: 12 }}
-            display="flex"
-            alignItems="flex-start"
-            justifyContent="center"
-            flexDirection="column"
-            marginBottom={{
-              xs: '40px',
-              md: '0px',
-            }}
-          >
-            <Text
-              variant="title"
-              tag="h1"
-              color="tertiary.main"
-              textAlign={{
-                xs: 'center',
-                md: 'center',
-              }}
-            >
-              Pagina Perguntas Frequentes
-            </Text>
-            <Button
-              variant="primary.main"
-              margin={{
-                xs: 'auto',
-                md: 'initial',
-              }}
-              display="block"
-              href="/"
-            >
-              Go Back
-            </Button>
-          </Grid.Col>
-        </Grid.Row>
-      </Grid.Container>
-
-      <Footer />
-    </Box>
+    <FAQScreen {...props} />
   );
+}
+
+export async function getStaticProps() {
+  const faqCategories = await fetch('https://instalura-api.vercel.app/api/content/faq').then(async (res) => {
+    const response = await res.json();
+    return response.data;
+  });
+
+  // Falar sobre tamanho da página aqui e tomar cuidado com recursos extras que vão pra página
+  return {
+    props: {
+      faqCategories,
+    },
+  };
 }
