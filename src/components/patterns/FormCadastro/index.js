@@ -172,7 +172,7 @@ function FormContent() {
   );
 }
 
-export default function FormCadastro({ propsModal }) {
+export default function FormCadastro({ propsModal, onClickCloseCadastro }) {
   return (
     <Grid.Row
       marginLeft={0}
@@ -208,7 +208,7 @@ export default function FormCadastro({ propsModal }) {
               right: 30,
             }}
           >
-            <Text data-modal-close-button variant="smallestException" tag="a" href="#"><i className="icofont-close icofont-2x" /></Text>
+            <Text variant="smallestException" tag="a" href="#" onClick={onClickCloseCadastro}><i className="icofont-close icofont-2x" /></Text>
           </Box>
           <FormContent />
         </Box>

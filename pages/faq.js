@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
@@ -9,7 +8,7 @@ import Box from '../src/components/foundation/layout/Box/index';
 import Modal from '../src/components/commons/Modal';
 import FormCadastro from '../src/components/patterns/FormCadastro';
 
-export default function Home() {
+export default function FAQScreen() {
   const [isModalOpen, setModalState] = React.useState(false);
   return (
     <Box
@@ -46,8 +45,8 @@ export default function Home() {
       >
         <Grid.Row>
           <Grid.Col
-            offset={{ xs: 0, md: 1 }}
-            value={{ xs: 12, md: 5 }}
+            offset={{ xs: 0, md: 0 }}
+            value={{ xs: 12, md: 12 }}
             display="flex"
             alignItems="flex-start"
             justifyContent="center"
@@ -63,24 +62,11 @@ export default function Home() {
               color="tertiary.main"
               textAlign={{
                 xs: 'center',
-                md: 'left',
+                md: 'center',
               }}
             >
-              Compartilhe momentos e conecte-se com amigos
+              Pagina Perguntas Frequentes
             </Text>
-            <Text
-              variant="paragraph1"
-              tag="p"
-              color="tertiary.light"
-              textAlign={{
-                xs: 'center',
-                md: 'left',
-              }}
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
-            </Text>
-
             <Button
               variant="primary.main"
               margin={{
@@ -88,19 +74,10 @@ export default function Home() {
                 md: 'initial',
               }}
               display="block"
-              onClick={() => {
-                setModalState(!isModalOpen);
-              }}
+              href="/"
             >
-              Cadastrar
+              Go Back
             </Button>
-          </Grid.Col>
-
-          <Grid.Col
-            offset={{ xs: 0, md: 0 }}
-            value={{ xs: 12, md: 6 }}
-          >
-            <Image src="/img/phones.png" alt="" width="386" height="575" />
           </Grid.Col>
         </Grid.Row>
       </Grid.Container>
