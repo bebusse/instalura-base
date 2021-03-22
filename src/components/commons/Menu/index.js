@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MenuWrapper from './styles/MenuWrapper';
 import Logo from '../../../theme/Logo';
 import Button from '../Button/index';
 import Text from '../../foundation/Text';
 
-export default function Menu() {
+export default function Menu({ onClickCadastrar, isLoginPage }) {
   const links = [
     {
       texto: 'Home',
@@ -31,15 +32,26 @@ export default function Menu() {
           </li>
         ))}
       </MenuWrapper.CentralSide>
+      {!isLoginPage && (
       <MenuWrapper.RightSide>
-        <Button ghost variant="secondary.main">
+        <Button ghost variant="secondary.main" href="/app/login">
           <Text />
           Entrar
         </Button>
-        <Button variant="primary.main">
+        <Button variant="primary.main" onClick={onClickCadastrar}>
           Cadastrar
         </Button>
       </MenuWrapper.RightSide>
+      )}
     </MenuWrapper>
   );
 }
+
+Menu.propTypes = {
+  isLoginPage: PropTypes.bool,
+  onClickCadastrar: PropTypes.func.isRequired,
+};
+
+Menu.defaultProps = {
+  isLoginPage: false,
+};
