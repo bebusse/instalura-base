@@ -220,4 +220,5 @@ export default function FormCadastro({ propsModal, onClickCloseCadastro }) {
 FormCadastro.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   propsModal: PropTypes.object.isRequired,
+  onClickCloseCadastro: PropTypes.func.isRequired,
 };
