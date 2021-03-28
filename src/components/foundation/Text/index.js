@@ -77,6 +77,7 @@ Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.string,
   href: PropTypes.string,
+  // eslint-disable-next-line react/require-default-props
   children: PropTypes.node,
 };
 
