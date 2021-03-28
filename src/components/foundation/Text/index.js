@@ -77,7 +77,7 @@ Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.string,
   href: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 Text.defaultProps = {
