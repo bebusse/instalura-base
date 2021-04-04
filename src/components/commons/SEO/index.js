@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 export default function SEO({ headTitle, description, image }) {
-  const baseTitle = 'Alura | Cursos online de Tecnologia';
-  const baseDescription = 'Aprenda Programação, Front-end, Data Science, UX, DevOps, Marketing, Inovação e Gestão na maior plataforma de tecnologia do Brasil';
+  const baseTitle = 'Instalura | Bootcamp JAMstack';
+  const baseDescription = 'Aprendendo sobre JAMStack com React + Next.js';
   const baseImage = 'https://www.alura.com.br/assets/img/alura-share.1616501197.png';
   const hasHeadTitle = Boolean(headTitle);
   const mainTitle = hasHeadTitle ? `${headTitle} | ${baseTitle}` : `${baseTitle}`;
