@@ -6,8 +6,7 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
-    "lint2": "eslint --fix --ignore-path .gitignore .",
-    "lint": "next lint",
+    "lint": "eslint --fix --ignore-path .gitignore .",
     "commit": "git add . && cz"
   },
   "dependencies": {
